@@ -78,3 +78,62 @@ for step in xrange(500):
 
 我们可以看到loss的趋势图在无限接近于0
 ![](https://github.com/monkeytest15/BlogPNG/blob/master/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-01-20%20%E4%B8%8B%E5%8D%885.15.37.png)
+
+其他的数值我们再一起来看下，权重和偏移值以及我们的实际值都再无限偏向于我们的期望值，也就是代码最早设置的w，b以及y_data
+![](https://cdn.rawgit.com/monkeytest15/BlogPNG/ba2691cd/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-01-20%20%E4%B8%8B%E5%8D%885.19.30.png)
+
+other
+---
+既然有了案例，那么需要多折腾试试看。代码中的学习在0.7，我们看下前100次训练的数据。w大概在50次左右就已经很接近我们的期望值了，而b大概在100次左右。
+```shell
+(0, 'W:', array([ 28.7924614], dtype=float32), 'b:', array([-26.07459641], dtype=float32))
+(5, 'W:', array([ 22.93203735], dtype=float32), 'b:', array([-6.60854244], dtype=float32))
+(10, 'W:', array([ 14.21786118], dtype=float32), 'b:', array([-5.31221294], dtype=float32))
+(15, 'W:', array([ 9.79547119], dtype=float32), 'b:', array([-2.6562953], dtype=float32))
+(20, 'W:', array([ 6.93433905], dtype=float32), 'b:', array([-1.36106539], dtype=float32))
+(25, 'W:', array([ 5.21388531], dtype=float32), 'b:', array([-0.51195335], dtype=float32))
+(30, 'W:', array([ 4.15765142], dtype=float32), 'b:', array([-0.00321657], dtype=float32))
+(35, 'W:', array([ 3.51307726], dtype=float32), 'b:', array([ 0.30944157], dtype=float32))
+(40, 'W:', array([ 3.11904287], dtype=float32), 'b:', array([ 0.50018537], dtype=float32))
+(45, 'W:', array([ 2.87828541], dtype=float32), 'b:', array([ 0.61679912], dtype=float32))
+(50, 'W:', array([ 2.73115993], dtype=float32), 'b:', array([ 0.6880492], dtype=float32))
+(55, 'W:', array([ 2.64125586], dtype=float32), 'b:', array([ 0.73159003], dtype=float32))
+(60, 'W:', array([ 2.58631778], dtype=float32), 'b:', array([ 0.75819641], dtype=float32))
+(65, 'W:', array([ 2.55274653], dtype=float32), 'b:', array([ 0.77445489], dtype=float32))
+(70, 'W:', array([ 2.53223205], dtype=float32), 'b:', array([ 0.78439009], dtype=float32))
+(75, 'W:', array([ 2.51969624], dtype=float32), 'b:', array([ 0.79046112], dtype=float32))
+(80, 'W:', array([ 2.51203585], dtype=float32), 'b:', array([ 0.79417104], dtype=float32))
+(85, 'W:', array([ 2.50735474], dtype=float32), 'b:', array([ 0.79643804], dtype=float32))
+(90, 'W:', array([ 2.50449443], dtype=float32), 'b:', array([ 0.79782349], dtype=float32))
+(95, 'W:', array([ 2.50274634], dtype=float32), 'b:', array([ 0.79866987], dtype=float32))
+(100, 'W:', array([ 2.50167823], dtype=float32), 'b:', array([ 0.79918718], dtype=float32))
+```
+
+学习速率在0-1中取值，数值越小就好像每次学习迈出的步子越小，每次训练的跨度不会很大。而0.9的话则相反。改成0.1之后我们训练的次数就会变多，甚至在训练结束我们都得不到想要的值
+```shell
+(0, 'W:', array([ 126.14640045], dtype=float32), 'b:', array([-12.36228561], dtype=float32))
+(5, 'W:', array([ 104.47080231], dtype=float32), 'b:', array([-39.09550095], dtype=float32))
+(10, 'W:', array([ 94.78070068], dtype=float32), 'b:', array([-43.2287178], dtype=float32))
+(15, 'W:', array([ 88.2450943], dtype=float32), 'b:', array([-42.08102036], dtype=float32))
+(20, 'W:', array([ 82.72779846], dtype=float32), 'b:', array([-39.79907227], dtype=float32))
+(25, 'W:', array([ 77.70004272], dtype=float32), 'b:', array([-37.3695755], dtype=float32))
+(30, 'W:', array([ 73.01972198], dtype=float32), 'b:', array([-35.02152634], dtype=float32))
+(35, 'W:', array([ 68.63846588], dtype=float32), 'b:', array([-32.80261612], dtype=float32))
+(40, 'W:', array([ 64.53126526], dtype=float32), 'b:', array([-30.71748161], dtype=float32))
+(45, 'W:', array([ 60.67957306], dtype=float32), 'b:', array([-28.76085472], dtype=float32))
+(50, 'W:', array([ 57.06715012], dtype=float32), 'b:', array([-26.92548561], dtype=float32))
+(55, 'W:', array([ 53.67905426], dtype=float32), 'b:', array([-25.20401955], dtype=float32))
+(60, 'W:', array([ 50.50133133], dtype=float32), 'b:', array([-23.58942795], dtype=float32))
+(65, 'W:', array([ 47.52091217], dtype=float32), 'b:', array([-22.07508087], dtype=float32))
+(70, 'W:', array([ 44.72555161], dtype=float32), 'b:', array([-20.65476227], dtype=float32))
+(75, 'W:', array([ 42.10375977], dtype=float32), 'b:', array([-19.32262993], dtype=float32))
+(80, 'W:', array([ 39.64474487], dtype=float32), 'b:', array([-18.07320976], dtype=float32))
+(85, 'W:', array([ 37.33841705], dtype=float32), 'b:', array([-16.90136719], dtype=float32))
+(90, 'W:', array([ 35.17529297], dtype=float32), 'b:', array([-15.80228519], dtype=float32))
+(95, 'W:', array([ 33.14647675], dtype=float32), 'b:', array([-14.77144527], dtype=float32))
+(100, 'W:', array([ 31.24362946], dtype=float32), 'b:', array([-13.80461025], dtype=float32))
+```
+相反如果比较大，偏导数则可能收敛的很慢，甚至发散。比如下面的报告
+![](https://cdn.rawgit.com/monkeytest15/BlogPNG/fdda1fac/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-01-20%20%E4%B8%8B%E5%8D%885.37.39.png)
+
+
