@@ -73,3 +73,8 @@ for step in xrange(500):
         writer.add_summary(result,step) #result是summary类型的
 
 ```
+
+运行之后可以在我们设置的目录下得到`events.out.tfevents.xxxxx.yyyy.local`这样一个记录文件，这个记录文件我们可以使用`tensorboard --logdir=`命令在本地浏览器中打开我们的报告。在我们查看之前我们先来说下这段脚本的目的，目标就是经过训练之后，我们的权重和偏移值能够无限接近甚至等于我们开始预期的那个值。也就是我们说的最小化`loss`。
+
+我们可以看到loss的趋势图在无限接近于0
+![](https://github.com/monkeytest15/BlogPNG/blob/master/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-01-20%20%E4%B8%8B%E5%8D%885.15.37.png)
