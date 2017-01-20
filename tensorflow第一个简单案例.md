@@ -136,4 +136,6 @@ other
 相反如果比较大，偏导数则可能收敛的很慢，甚至发散。比如下面的报告
 ![](https://cdn.rawgit.com/monkeytest15/BlogPNG/fdda1fac/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-01-20%20%E4%B8%8B%E5%8D%885.37.39.png)
 
-
+总结
+---
+希望案例能使用够帮助大家更好的使用`tensorflow`以及了解一些基础的方法。推荐在进行尝试之前阅读[gitbook](https://hit-scir.gitbooks.io/neural-networks-and-deep-learning-zh_cn/content/chap1/c1s2.html)
